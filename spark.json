@@ -1,0 +1,7 @@
+{
+  "name": "photon_fft",
+  "author": "Prashant Ravi",
+  "license": "MIT",
+  "version": "0.0.1",
+  "description": "A simple fft library based on nayuki's fft library https://www.nayuki.io/page/free-small-fft-in-multiple-languages"
+}
