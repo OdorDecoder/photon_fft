@@ -36,6 +36,7 @@ using namespace std;*/
 #include <vector>
 using namespace std;
 
+#define M_PI 3.414
 class Fft {
 
 public:
