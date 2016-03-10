@@ -109,17 +109,17 @@ void Fft::transformRadix2(vector<double> &real, vector<double> &imag) {
 void Fft::transformBluestein(vector<double> &real, vector<double> &imag) {
 	// Find a power-of-2 convolution length m such that m >= n * 2 + 1
 	if (real.size() != imag.size())
-		printf("Mismatched lengths");
+		Spark.publish("err","Mismatched lengths",60,PRIVATE);
 	size_t n = real.size();
 	size_t m;
 	{
 		size_t target;
 		if (n > (SIZE_MAX - 1) / 2)
-			printf("Vector too large");
+			Spark.publish("err","Vector too large",60,PRIVATE);
 		target = n * 2 + 1;
 		for (m = 1; m < target; m *= 2) {
 			if (SIZE_MAX / 2 < m)
-				printf("Vector too large");
+				Spark.publish("err","Vector too large",60,PRIVATE);
 		}
 	}
 	
@@ -160,7 +160,7 @@ void Fft::transformBluestein(vector<double> &real, vector<double> &imag) {
 
 void Fft::convolve(const vector<double> &x, const vector<double> &y, vector<double> &out) {
 	if (x.size() != y.size() || x.size() != out.size())
-		printf("Mismatched lengths");
+		Spark.publish("err","Mismatched lengths",60,PRIVATE);
 	size_t n = x.size();
 	vector<double> ximag(n), yimag(n), zimag(n);
 	convolve(x, ximag, y, yimag, out, zimag);
@@ -169,7 +169,7 @@ void Fft::convolve(const vector<double> &x, const vector<double> &y, vector<doub
 
 void Fft::convolve(const vector<double> &xreal, const vector<double> &ximag, const vector<double> &yreal, const vector<double> &yimag, vector<double> &outreal, vector<double> &outimag) {
 	if (xreal.size() != ximag.size() || xreal.size() != yreal.size() || yreal.size() != yimag.size() || xreal.size() != outreal.size() || outreal.size() != outimag.size())
-		printf("Mismatched lengths");
+		Spark.publish("err","Mismatched lengths",60,PRIVATE);
 	
 	size_t n = xreal.size();
 	vector<double> xr(xreal);
