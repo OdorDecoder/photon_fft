@@ -21,16 +21,22 @@
  *   out of or in connection with the Software or the use or other dealings in the
  *   Software.
  */
-/*#include <cmath>
+/*#include <iostream>
+#include <stdio.h>
+#include <cmath>
 #include <cstdint>
-#include <vector>*/
+#include <vector>
+using namespace std;*/
+
 
 #ifndef _SPARKTIME
 #define _SPARKTIME
 
 #include "application.h"
 
-namespace Fft {
+class Fft {
+
+public:
 	
 	/* 
 	 * Computes the discrete Fourier transform (DFT) of the given complex vector, storing the result back into the vector.
@@ -67,4 +73,5 @@ namespace Fft {
 	 */
 	void convolve(const std::vector<double> &xreal, const std::vector<double> &ximag, const std::vector<double> &yreal, const std::vector<double> &yimag, std::vector<double> &outreal, std::vector<double> &outimag);
 	
-}
+};
+#endif

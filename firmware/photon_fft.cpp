@@ -24,9 +24,6 @@
 
 #include "photon_fft.h"
 
-using std::size_t;
-using std::vector;
-
 
 // Private function prototypes
 static size_t reverseBits(size_t x, unsigned int n);

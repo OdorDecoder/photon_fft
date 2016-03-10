@@ -1,13 +1,9 @@
-#include <iostream>
-#include <stdio.h>
-#include <vector>
-using namespace std;
-
 #include "photon_fft.h"
 
 #define N 256
 int main()
 {
+	Fft call_fft;
 	std::vector<double> inputreal(N);
 	std::vector<double> inputimag(N);
 	register int i = 0;
@@ -17,7 +13,7 @@ int main()
 		inputimag[i] = 0;
 	}
 
-	Fft::transformRadix2(inputreal,inputimag);
+	call_fft.transformRadix2(inputreal,inputimag);
 
 	for(i=0;i<N;i++)
 	{
