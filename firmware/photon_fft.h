@@ -33,6 +33,8 @@ using namespace std;*/
 #define _SPARKTIME
 
 #include "application.h"
+#include <cmath>
+#include <cstdint>
 #include <vector>
 using namespace std;
 
