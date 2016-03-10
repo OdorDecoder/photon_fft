@@ -51,7 +51,7 @@ void Fft::inverseTransform(vector<double> &real, vector<double> &imag) {
 void Fft::transformRadix2(vector<double> &real, vector<double> &imag) {
 	// Compute levels = floor(log2(n))
 	if (real.size() != imag.size())
-		printf("Mismatched lengths");
+		Spark.publish("err","Mismatched lengths",60,PRIVATE);
 	size_t n = real.size();
 	unsigned int levels;
 	{
@@ -62,7 +62,7 @@ void Fft::transformRadix2(vector<double> &real, vector<double> &imag) {
 			temp >>= 1;
 		}
 		if (1u << levels != n)
-			printf("Length is not a power of 2");
+			Spark.publish("err","Length is not a power of 2",60,PRIVATE);
 	}
 	
 	// Trignometric tables
