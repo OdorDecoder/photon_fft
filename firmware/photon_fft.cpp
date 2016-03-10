@@ -31,7 +31,7 @@ static size_t reverseBits(size_t x, unsigned int n);
 
 void Fft::transform(vector<double> &real, vector<double> &imag) {
 	if (real.size() != imag.size())
-		 printf("Mismatched lengths");
+		 Spark.publish("err","Mismatched lengths",60,PRIVATE);
 	
 	size_t n = real.size();
 	if (n == 0)
