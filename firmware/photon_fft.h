@@ -33,6 +33,7 @@ using namespace std;*/
 #define _SPARKTIME
 
 #include "application.h"
+#include <vector>
 using namespace std;
 
 class Fft {
